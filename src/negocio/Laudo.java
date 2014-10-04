@@ -16,8 +16,12 @@ public class Laudo {
     
     private String medico;
     private Date dataLaudo;
-    private String mamaDir;
-    private String mamaEsq;
+    
+    private String localizacao;
+    private String composicao;
+    private float tamanho;
+    private String diagnostico;
+    private String recomendacoes;
 
     public Laudo() {
     }
@@ -29,15 +33,7 @@ public class Laudo {
     public Date getDataLaudo() {
         return dataLaudo;
     }
-
-    public String getMamaDir() {
-        return mamaDir;
-    }
-
-    public String getMamaEsq() {
-        return mamaEsq;
-    }
-
+    
     public void setMedico(String medico) {
         this.medico = medico;
     }
@@ -45,15 +41,4 @@ public class Laudo {
     public void setDataLaudo(Date dataLaudo) {
         this.dataLaudo = dataLaudo;
     }
-
-    public void setMamaDir(String mamaDir) {
-        this.mamaDir = mamaDir;
-    }
-
-    public void setMamaEsq(String mamaEsq) {
-        this.mamaEsq = mamaEsq;
-    }
-    
-    
-    
 }
