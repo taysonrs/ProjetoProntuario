@@ -204,7 +204,8 @@ public class fmPrincipal extends javax.swing.JFrame {
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
-        int valor = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?","Sistema de Prontuários Médicos",1);
+        int valor = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?","Sistema de Prontuários Médicos",1); // se o primeiro paramtro for null o JOptionframe se perde e fica atras das janelas e trava a aplicação
+        
         if (valor == 0){
             System.exit(0); //Finalizar o programa
         }

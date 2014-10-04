@@ -20,6 +20,12 @@ public class fmLogin extends javax.swing.JFrame {
      */
     public fmLogin() {
         initComponents();
+        /*Este método deve ser executado na janela. 
+        Sua classe estende JFrame ou JDialog. Então coloque no construtor, após a criação dos botões etc. 
+        Este método diz que o botão passado no parâmetro(no caso o btLogin) será o padrão para a janela.
+        http://www.guj.com.br/java/238491-resolvido---chamar-evento-ao-pressionar-enterteclado
+        */
+        getRootPane().setDefaultButton(btLogin); // Para poder teclar enter e não precisar ir ao botao
     }
 
     /**
