@@ -64,6 +64,11 @@ public class fmLogin extends javax.swing.JFrame {
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
         btCancelar.setText("Cancelar");
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,6 +172,16 @@ public class fmLogin extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btLoginActionPerformed
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        // TODO add your handling code here:
+        int valor = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?","Sistema de Prontuários Médicos",1); // se o primeiro paramtro for null o JOptionframe se perde e fica atras das janelas e trava a aplicação
+        
+        if (valor == 0){
+            System.exit(0); //Finalizar o programa
+        }
+        
+    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
      * @param args the command line arguments

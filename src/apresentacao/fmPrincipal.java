@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -50,7 +49,13 @@ public class fmPrincipal extends javax.swing.JFrame {
         btFicha = new javax.swing.JButton();
         btLaudo = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        try {
+            jDesktopPane1 =(javax.swing.JDesktopPane)java.beans.Beans.instantiate(getClass().getClassLoader(), "apresentacao.fmPrincipal_jDesktopPane1");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         jPanel1 = new javax.swing.JPanel();
         laUsuario = new javax.swing.JLabel();
         laData = new javax.swing.JLabel();
@@ -171,14 +176,29 @@ public class fmPrincipal extends javax.swing.JFrame {
 
         jMenuItemPacientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemPacientes.setText("Pacientes");
+        jMenuItemPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPacientesActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemPacientes);
 
         jMenuItemFichas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemFichas.setText("Fichas");
+        jMenuItemFichas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFichasActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemFichas);
 
         jMenuItemLaudos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemLaudos.setText("Laudos");
+        jMenuItemLaudos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLaudosActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemLaudos);
 
         jMenuBar1.add(jMenuCadastros);
@@ -262,26 +282,51 @@ public class fmPrincipal extends javax.swing.JFrame {
 
     private void btPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPacienteActionPerformed
         // TODO add your handling code here:
-        //Instancia de uma janela de paciente
         fmPaciente paciente = new fmPaciente();
+        jDesktopPane1.add(paciente);
         paciente.setVisible(true);
-        //paciente.setExtendedState(JFrame.MAXIMIZED_BOTH); //nostra maximizado
-        this.dispose();
     }//GEN-LAST:event_btPacienteActionPerformed
 
     private void btFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFichaActionPerformed
         // TODO add your handling code here:
-        fmFicha ficha = new fmFicha();
-        ficha.setVisible(true);
-        this.dispose();
+       fmFicha2 ficha = new fmFicha2();
+       jDesktopPane1.add(ficha);
+       ficha.setVisible(true);
+               
+                      
     }//GEN-LAST:event_btFichaActionPerformed
 
     private void btLaudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLaudoActionPerformed
         // TODO add your handling code here:
         fmLaudo laudo = new fmLaudo();
+        jDesktopPane1.add(laudo);
         laudo.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_btLaudoActionPerformed
+
+    private void jMenuItemPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPacientesActionPerformed
+        // TODO add your handling code here:
+         fmPaciente paciente = new fmPaciente();
+        jDesktopPane1.add(paciente);
+        paciente.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItemPacientesActionPerformed
+
+    private void jMenuItemFichasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFichasActionPerformed
+        // TODO add your handling code here:
+        fmFicha2 ficha = new fmFicha2();
+        jDesktopPane1.add(ficha);
+        ficha.setVisible(true);
+       
+    }//GEN-LAST:event_jMenuItemFichasActionPerformed
+
+    private void jMenuItemLaudosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLaudosActionPerformed
+        // TODO add your handling code here:
+        fmLaudo laudo = new fmLaudo();
+        jDesktopPane1.add(laudo);
+        laudo.setVisible(true);
+       
+    }//GEN-LAST:event_jMenuItemLaudosActionPerformed
 
     /**
      * @param args the command line arguments

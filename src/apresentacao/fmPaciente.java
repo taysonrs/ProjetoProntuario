@@ -3,19 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package apresentacao;
 
+import java.awt.Component;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  *
- * @author cpl.5614124135
+ * @author TRS
  */
-public class fmPaciente extends javax.swing.JFrame {
+public class fmPaciente extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Paciente
+     * Creates new form fmPaciente1
      */
     public fmPaciente() {
         initComponents();
@@ -47,14 +57,13 @@ public class fmPaciente extends javax.swing.JFrame {
         cbCor = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         btUpload = new javax.swing.JButton();
-        txtDataNascimento = new com.toedter.calendar.JDateChooser();
+        dtDataNascimento = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Paciente");
+        setClosable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados"));
 
@@ -128,7 +137,7 @@ public class fmPaciente extends javax.swing.JFrame {
                     .addComponent(cbEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(170, 170, 170)
@@ -164,7 +173,7 @@ public class fmPaciente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,9 +201,19 @@ public class fmPaciente extends javax.swing.JFrame {
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
         btNovo.setText("Novo");
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoActionPerformed(evt);
+            }
+        });
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Save_32.png"))); // NOI18N
         btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
         btSair.setText("Sair");
@@ -249,49 +268,54 @@ public class fmPaciente extends javax.swing.JFrame {
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
-        fmPrincipal principal = new fmPrincipal();
-            principal.setVisible(true);
-            principal.setExtendedState(JFrame.MAXIMIZED_BOTH); // mostramos maximizado
-            this.dispose();//liberamos(fechamos) o formulario de login
-        
-        
+       this.dispose();
+
     }//GEN-LAST:event_btSairActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(fmPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(fmPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(fmPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(fmPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+  
+     Component components[] = jPanel1.getComponents();  
+        for (Component component : components)  
+        {  
+            if (component instanceof JTextField)  
+            {  
+                ((JTextField)component).setText(null);  
+            }  
+        } 
+        
+    }//GEN-LAST:event_btNovoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new fmPaciente().setVisible(true);
-            }
-        });
-    }
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+        JFileChooser arqPaciente = new JFileChooser();
+        arqPaciente.showSaveDialog(this);
+                
+         FileWriter fw;
+        try {
+            fw = new FileWriter(arqPaciente.getSelectedFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write(txtNome.getText()); bw.newLine();
+            
+            Date data = dtDataNascimento.getDate();
+            SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+            bw.write(dataFormatada.format(data));bw.newLine();
+            
+            bw.write(txtNomeMae.getText());bw.newLine();
+            bw.write(txtProntuario.getText());bw.newLine();
+            bw.write((String) cbEstadoCivil.getSelectedItem()); bw.newLine();
+            bw.write((String) cbCor.getSelectedItem()); bw.newLine();
+            bw.write(txtTelefone.getText()); bw.newLine();
+            
+            bw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(fmPaciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }//GEN-LAST:event_btSalvarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btNovo;
@@ -300,6 +324,7 @@ public class fmPaciente extends javax.swing.JFrame {
     private javax.swing.JButton btUpload;
     private javax.swing.JComboBox cbCor;
     private javax.swing.JComboBox cbEstadoCivil;
+    private com.toedter.calendar.JDateChooser dtDataNascimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -311,7 +336,6 @@ public class fmPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private com.toedter.calendar.JDateChooser txtDataNascimento;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeMae;
     private javax.swing.JTextField txtProntuario;

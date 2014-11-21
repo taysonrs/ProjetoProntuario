@@ -31,7 +31,7 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         btPaciente = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btCadUsuario = new javax.swing.JButton();
         btFicha = new javax.swing.JButton();
         btLaudo = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
@@ -44,6 +44,7 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
         jMenuItemPacientes = new javax.swing.JMenuItem();
         jMenuItemFichas = new javax.swing.JMenuItem();
         jMenuItemLaudos = new javax.swing.JMenuItem();
+        jMenuItemCadUsuario = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -69,17 +70,17 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
         });
         jToolBar1.add(btPaciente);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/People-32.png"))); // NOI18N
-        jButton1.setText("Usuario");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btCadUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/People-32.png"))); // NOI18N
+        btCadUsuario.setText("Usuario");
+        btCadUsuario.setFocusable(false);
+        btCadUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btCadUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btCadUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btCadUsuarioActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton1);
+        jToolBar1.add(btCadUsuario);
 
         btFicha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
         btFicha.setText("Ficha");
@@ -157,15 +158,39 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
 
         jMenuItemPacientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemPacientes.setText("Pacientes");
+        jMenuItemPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPacientesActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemPacientes);
 
         jMenuItemFichas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemFichas.setText("Fichas");
+        jMenuItemFichas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFichasActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemFichas);
 
         jMenuItemLaudos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemLaudos.setText("Laudos");
+        jMenuItemLaudos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLaudosActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemLaudos);
+
+        jMenuItemCadUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemCadUsuario.setText("Usuários");
+        jMenuItemCadUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadUsuarioActionPerformed(evt);
+            }
+        });
+        jMenuCadastros.add(jMenuItemCadUsuario);
 
         jMenuBar1.add(jMenuCadastros);
 
@@ -222,25 +247,23 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
 
     private void btPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPacienteActionPerformed
         // TODO add your handling code here:
-        //Instancia de uma janela de paciente
-        fmPaciente paciente = new fmPaciente();
+       fmPaciente paciente = new fmPaciente();
+        jDesktopPane1.add(paciente);
         paciente.setVisible(true);
-        //paciente.setExtendedState(JFrame.MAXIMIZED_BOTH); //nostra maximizado
-        this.dispose();
     }//GEN-LAST:event_btPacienteActionPerformed
 
     private void btFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFichaActionPerformed
-        // TODO add your handling code here:
-        fmFicha ficha = new fmFicha();
+        fmFicha2 ficha;
+        ficha = new fmFicha2();
+        jDesktopPane1.add(ficha);
         ficha.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btFichaActionPerformed
 
     private void btLaudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLaudoActionPerformed
         // TODO add your handling code here:
         fmLaudo laudo = new fmLaudo();
+        jDesktopPane1.add(laudo);
         laudo.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btLaudoActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
@@ -252,12 +275,40 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btSairActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btCadUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadUsuarioActionPerformed
         // TODO add your handling code here:
-        fmCadastroUsuario usuario = new fmCadastroUsuario();
+        fmCadUsuario usuario = new fmCadUsuario();
+        jDesktopPane1.add(usuario);
         usuario.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btCadUsuarioActionPerformed
+
+    private void jMenuItemCadUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadUsuarioActionPerformed
+        // TODO add your handling code here:
+        fmCadUsuario usuario = new fmCadUsuario();
+        jDesktopPane1.add(usuario);
+        usuario.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadUsuarioActionPerformed
+
+    private void jMenuItemPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPacientesActionPerformed
+        // TODO add your handling code here:
+        fmPaciente paciente = new fmPaciente();
+        jDesktopPane1.add(paciente);
+        paciente.setVisible(true);
+    }//GEN-LAST:event_jMenuItemPacientesActionPerformed
+
+    private void jMenuItemFichasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFichasActionPerformed
+        // TODO add your handling code here:
+        fmFicha2 ficha = new fmFicha2();
+        jDesktopPane1.add(ficha);
+        ficha.setVisible(true);
+    }//GEN-LAST:event_jMenuItemFichasActionPerformed
+
+    private void jMenuItemLaudosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLaudosActionPerformed
+        // TODO add your handling code here:
+         fmLaudo laudo = new fmLaudo();
+        jDesktopPane1.add(laudo);
+        laudo.setVisible(true);
+    }//GEN-LAST:event_jMenuItemLaudosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +339,7 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new fmPrincipalAdministrador().setVisible(true);
             }
@@ -295,11 +347,11 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCadUsuario;
     private javax.swing.JButton btFicha;
     private javax.swing.JButton btLaudo;
     private javax.swing.JButton btPaciente;
     private javax.swing.JButton btSair;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBar1;
@@ -307,6 +359,7 @@ public class fmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuConfiguracoes;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItemCadUsuario;
     private javax.swing.JMenuItem jMenuItemCriarUsuarios;
     private javax.swing.JMenuItem jMenuItemFichas;
     private javax.swing.JMenuItem jMenuItemLaudos;

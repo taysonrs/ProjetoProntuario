@@ -3,21 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package apresentacao;
-
-import javax.swing.JFrame;
 
 /**
  *
- * @author cpl.5614124135
+ * @author TRS
  */
-public class fmFicha extends javax.swing.JFrame {
+public class fmFicha2 extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Ficha
+     * Creates new form fmFicha2
      */
-    public fmFicha() {
+    public fmFicha2() {
         initComponents();
     }
 
@@ -30,6 +27,11 @@ public class fmFicha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btSair = new javax.swing.JButton();
+        btNovo = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
+        btBuscarPaciente = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,14 +54,28 @@ public class fmFicha extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtSintomas = new javax.swing.JTextArea();
         txtData = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
-        btBuscarPaciente = new javax.swing.JButton();
-        btSalvar = new javax.swing.JButton();
-        btNovo = new javax.swing.JButton();
-        btSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        setClosable(true);
+
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
+        btSair.setText("Sair");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
+            }
+        });
+
+        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
+        btNovo.setText("Novo");
+
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Save_32.png"))); // NOI18N
+        btSalvar.setText("Salvar");
+
+        btBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/search32.jpg"))); // NOI18N
+        btBuscarPaciente.setText("Buscar Paciente");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Fichas Médicas");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Dados da Paciente")));
 
@@ -90,14 +106,18 @@ public class fmFicha extends javax.swing.JFrame {
         cbAlteracoes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sim", "Não", " " }));
 
         txtInformacoes.setColumns(20);
+        txtInformacoes.setLineWrap(true);
         txtInformacoes.setRows(5);
         jScrollPane3.setViewportView(txtInformacoes);
 
         txtQueixas.setColumns(20);
+        txtQueixas.setLineWrap(true);
         txtQueixas.setRows(5);
+        txtQueixas.setSelectionEnd(22);
         jScrollPane1.setViewportView(txtQueixas);
 
         txtSintomas.setColumns(20);
+        txtSintomas.setLineWrap(true);
         txtSintomas.setRows(5);
         jScrollPane2.setViewportView(txtSintomas);
 
@@ -148,7 +168,7 @@ public class fmFicha extends javax.swing.JFrame {
                             .addComponent(jScrollPane3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cbHabitosAlimentares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbProtese, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -182,30 +202,10 @@ public class fmFicha extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)))
         );
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Fichas Médicas");
-
-        btBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/search32.jpg"))); // NOI18N
-        btBuscarPaciente.setText("Buscar Paciente");
-
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Save_32.png"))); // NOI18N
-        btSalvar.setText("Salvar");
-
-        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
-        btNovo.setText("Novo");
-
-        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
-        btSair.setText("Sair");
-        btSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,47 +253,10 @@ public class fmFicha extends javax.swing.JFrame {
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
-        fmPrincipal principal = new fmPrincipal();
-            principal.setVisible(true);
-            principal.setExtendedState(JFrame.MAXIMIZED_BOTH); // mostramos maximizado
-            this.dispose();//liberamos(fechamos) o formulario de login
+        this.dispose();//liberamos(fechamos) o formulario de login
     }//GEN-LAST:event_btSairActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(fmFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(fmFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(fmFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(fmFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new fmFicha().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscarPaciente;
@@ -324,4 +287,6 @@ public class fmFicha extends javax.swing.JFrame {
     private javax.swing.JTextArea txtQueixas;
     private javax.swing.JTextArea txtSintomas;
     // End of variables declaration//GEN-END:variables
+    
+    
 }

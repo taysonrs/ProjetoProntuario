@@ -16,6 +16,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pacientes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPacientesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFichas">
               <Properties>
@@ -24,6 +27,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fichas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemFichasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemLaudos">
               <Properties>
@@ -32,6 +38,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Laudos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemLaudosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -119,7 +128,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jDesktopPane1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jDesktopPane1" alignment="1" pref="418" max="32767" attributes="0"/>
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Component id="jToolBar1" alignment="1" max="32767" attributes="0"/>
       </Group>
@@ -211,6 +220,10 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CodeGeneration" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="fmPrincipal_jDesktopPane1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
