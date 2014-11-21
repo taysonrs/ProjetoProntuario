@@ -136,6 +136,8 @@ public class fmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Criamos um usuario e senha padrao(somente para teste)
         String usuarioDefault = "user";
+        String usuarioAdmin = "admin";
+        String usuarioMedico = "medico";
         
         String senhaDefault = "123";
         
@@ -149,7 +151,18 @@ public class fmLogin extends javax.swing.JFrame {
             principal.setVisible(true);
             principal.setExtendedState(JFrame.MAXIMIZED_BOTH); // mostramos maximizado
             this.dispose();//liberamos(fechamos) o formulario de login
-        } else {
+        } else if(usuarioMedico.equals(usuarioDigitado) && senhaDefault.equals(senhaDigitada)){
+            fmPrincipal principal = new fmPrincipal();
+            principal.setVisible(true);
+            principal.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+            this.dispose();
+        } else if(usuarioAdmin.equals(usuarioDigitado) && senhaDefault.equals(senhaDigitada)){
+            fmPrincipalAdministrador admin = new fmPrincipalAdministrador();
+            admin.setVisible(true);
+            admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            this.dispose();
+        }
+        else {
             JOptionPane.showMessageDialog(null,"Usuario ou senha incorreto!!!");
         
         }

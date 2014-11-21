@@ -3,37 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package apresentacao;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 /**
  *
- * @author cpl.5614124135
+ * @author TRS
  */
-public class fmPrincipal extends javax.swing.JFrame {
+public class fmPrincipalAdministrador extends javax.swing.JFrame {
 
     /**
-     * Creates new form fmPrincipal
+     * Creates new form fmPrincipalAdministrador
      */
-    public fmPrincipal() {
+    public fmPrincipalAdministrador() {
         initComponents();
-    }
-    
-    private String mostrarData(){
-        //Converte a data para uma String e assim poder ser exibida na tela
-        DateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy   HH:mm:ss");
-        //Obter data atual com Date
-        Date data = new Date();
-        return dataFormatada.format(data);
     }
 
     /**
@@ -47,6 +31,7 @@ public class fmPrincipal extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         btPaciente = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         btFicha = new javax.swing.JButton();
         btLaudo = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
@@ -68,13 +53,6 @@ public class fmPrincipal extends javax.swing.JFrame {
         jMenuItemSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistemas Prontuários Médicos");
-        setAlwaysOnTop(true);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         jToolBar1.setRollover(true);
 
@@ -90,7 +68,18 @@ public class fmPrincipal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btPaciente);
-        btPaciente.getAccessibleContext().setAccessibleName("");
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/People-32.png"))); // NOI18N
+        jButton1.setText("Usuario");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
 
         btFicha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
         btFicha.setText("Ficha");
@@ -128,7 +117,6 @@ public class fmPrincipal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btSair);
-        btSair.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -138,7 +126,7 @@ public class fmPrincipal extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 225, Short.MAX_VALUE)
+            .addGap(0, 194, Short.MAX_VALUE)
         );
 
         laUsuario.setText("Bem-vindo");
@@ -152,7 +140,7 @@ public class fmPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(laUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
                 .addComponent(laData)
                 .addContainerGap())
         );
@@ -164,8 +152,6 @@ public class fmPrincipal extends javax.swing.JFrame {
                     .addComponent(laUsuario)
                     .addComponent(laData)))
         );
-
-        laUsuario.getAccessibleContext().setAccessibleName("");
 
         jMenuCadastros.setText("Cadastros");
 
@@ -234,32 +220,6 @@ public class fmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        // TODO add your handling code here:
-        int valor = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?","Sistema de Prontuários Médicos",1); // se o primeiro paramtro for null o JOptionframe se perde e fica atras das janelas e trava a aplicação
-        
-        if (valor == 0){
-            System.exit(0); //Finalizar o programa
-        }
-    }//GEN-LAST:event_btSairActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        //Data é jogada na label Data
-        laData.setText(mostrarData());
-        
-        ActionListener updater = new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                laData.setText(mostrarData());
-            }
-        };
-        Timer timer = new Timer(1000, updater); // Chamamos o metodo updater a cada 1000 milisegundos
-        timer.start();
-            
-    }//GEN-LAST:event_formWindowOpened
-
     private void btPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPacienteActionPerformed
         // TODO add your handling code here:
         //Instancia de uma janela de paciente
@@ -283,6 +243,22 @@ public class fmPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btLaudoActionPerformed
 
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
+        // TODO add your handling code here:
+        int valor = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?","Sistema de Prontuários Médicos",1); // se o primeiro paramtro for null o JOptionframe se perde e fica atras das janelas e trava a aplicação
+
+        if (valor == 0){
+            System.exit(0); //Finalizar o programa
+        }
+    }//GEN-LAST:event_btSairActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        fmCadastroUsuario usuario = new fmCadastroUsuario();
+        usuario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -300,20 +276,20 @@ public class fmPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(fmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fmPrincipalAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(fmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fmPrincipalAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(fmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fmPrincipalAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(fmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fmPrincipalAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new fmPrincipal().setVisible(true);
+                new fmPrincipalAdministrador().setVisible(true);
             }
         });
     }
@@ -323,6 +299,7 @@ public class fmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btLaudo;
     private javax.swing.JButton btPaciente;
     private javax.swing.JButton btSair;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBar1;
